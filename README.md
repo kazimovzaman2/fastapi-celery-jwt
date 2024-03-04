@@ -70,3 +70,10 @@ Before running the application, ensure you have the following installed:
 ### IP Data Endpoints
 - `POST /api/v1/task`: Create a new task to fetch IP data for a given IP address. Returns the task ID.
 - `GET /api/v1/status/{task_id}`: Check the status of a task and retrieve the fetched IP data if the task is completed.
+
+
+## Testing
+For running tests, you can use the following command:
+```bash
+python3 -m unittest discover -s app/tests -p 'test_*.py'
+```

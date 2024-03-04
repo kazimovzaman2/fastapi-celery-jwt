@@ -3,9 +3,11 @@
 This project is a web application built with FastAPI and Celery, designed to retrieve and store IP data from the ipdata.co API into a MySQL database.
 
 
-## Video Explanation
 
-![](./assets/explanation.mp4)
+
+https://github.com/kazimovzaman2/fastapi-celery-jwt/assets/92586852/9b9c9091-80f7-4eb9-8f65-db52601c5d06
+
+
 
 
 ## Features

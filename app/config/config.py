@@ -2,9 +2,9 @@ from fastapi.applications import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 
 from app.users.model import User
-from app.tasks.model import IPData
+from app.tasks.model import Tasks
 
-ALL_MODELS = [User, IPData]
+ALL_MODELS = [User, Tasks]
 
 
 def middlewareAPI(app: FastAPI, available=True):

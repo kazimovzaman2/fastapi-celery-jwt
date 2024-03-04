@@ -4,7 +4,7 @@ from peewee import CharField, FloatField, ForeignKeyField
 from app.users.model import User
 
 
-class IPData(BaseModel):
+class Tasks(BaseModel):
     ip = CharField()
     country_name = CharField()
     latitude = FloatField()

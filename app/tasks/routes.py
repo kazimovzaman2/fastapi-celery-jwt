@@ -9,7 +9,7 @@ router_task = APIRouter(prefix="/api/v1")
 
 @router_task.post("/task")
 async def create_task(ip: str, current_user: User = Depends(get_current_user)):
-    result = fetch_data_and_save_id_data.delay(ip, current_user.id)
+    result = fetch_data_and_save_id_data.delay(ip, current_user["id"])
     return {"task_id": result.id}
 
 

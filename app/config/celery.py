@@ -1,17 +1,17 @@
 from celery import Celery
 import ipdata
-from app.tasks.model import IPData
+from app.tasks.model import Tasks
 from decouple import config
 
 app = Celery("tasks", broker=config("RABBITMQ_URL"), backend="rpc://")
 
 
 @app.task
-def fetch_data_and_save_id_data(ip: str, user_id: int):
+def fetch_data_and_save_id_data(ip, user_id):
     ipdata.api_key = config("IPDATA_API_KEY")
     response = ipdata.lookup(ip)
 
-    IPData.create(
+    Tasks.create(
         ip=ip,
         country_name=response["country_name"],
         city=response["city"],

@@ -1,13 +1,15 @@
-from fastapi import APIRouter, HTTPException
+from fastapi import APIRouter, Depends
 
 from app.config.celery import fetch_data_and_save_id_data
+from app.config.security import get_current_user
+from app.users.model import User
 
 router_task = APIRouter(prefix="/api/v1")
 
 
 @router_task.post("/task")
-async def create_task(ip: str):
-    result = fetch_data_and_save_id_data.delay(ip)
+async def create_task(ip: str, current_user: User = Depends(get_current_user)):
+    result = fetch_data_and_save_id_data.delay(ip, current_user.id)
     return {"task_id": result.id}
 
 

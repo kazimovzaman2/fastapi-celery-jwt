@@ -1,5 +1,7 @@
 from app.config.database import BaseModel
-from peewee import CharField, FloatField
+from peewee import CharField, FloatField, ForeignKeyField
+
+from app.users.model import User
 
 
 class IPData(BaseModel):
@@ -9,3 +11,4 @@ class IPData(BaseModel):
     longitude = FloatField()
     flag = CharField()
     continent_code = CharField()
+    user = ForeignKeyField(User, backref="ip_data")
